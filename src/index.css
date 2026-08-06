@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  /* Base neutrals - warm off-white to charcoal */
+  --color-cream: #faf7f2;
+  --color-cream-dark: #ede7dd;
+  --color-charcoal: #4a4a46;
+  --color-charcoal-dark: #1c1c1a;
+
+  /* Primary accent - coral (CTAs) */
+  --color-coral-50: #faece7;
+  --color-coral-200: #f0997b;
+  --color-coral-500: #d85a30;
+  --color-coral-800: #712b13;
+
+  /* Trust accent - FORCED DARK BLUE */
+  --color-green-50: #e6f0fa;
+  --color-green-200: #6ba4e8;
+  --color-green-500: #0f4c81; /* This is now dark blue */
+  --color-green-800: #0a2540;
+
+  /* Energy accent - gold (ministries, events) */
+  --color-gold-50: #faeeda;
+  --color-gold-200: #fac775;
+  --color-gold-500: #ba7517;
+
+  /* Energy accent - purple (footer, social) */
+  --color-plum-50: #eeedfe;
+  --color-plum-200: #afa9ec;
+  --color-plum-500: #7f77dd;
+
+  --font-sans: "Google Sans", system-ui, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-cream);
+  color: var(--color-charcoal-dark);
+  font-family: var(--font-sans);
+}
