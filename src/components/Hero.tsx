@@ -14,7 +14,7 @@ export default function Hero() {
           src={heroPhoto}
           alt="Bishop Dag Heward-Mills"
           className="w-full h-full object-cover object-top"
-          loading="lazy"
+          fetchPriority="high"
         />
       </div>
       <div className="absolute inset-0 bg-charcoal-dark/60" />
