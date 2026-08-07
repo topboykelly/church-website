@@ -26,9 +26,14 @@ export default function Bishop() {
           </blockquote>
 
           <div className="flex items-center gap-4">
-            <button className="bg-green-500 hover:bg-green-800 transition-colors text-cream rounded-full px-6 py-3 text-sm font-medium">
+            <a
+              href="https://steveoasare.podbean.com/?utm_campaign=wl_i_share_pp&utm_source=wl_i_share_pbblog&utm_medium=dlink"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-green-500 hover:bg-green-800 transition-colors text-cream rounded-full px-6 py-3 text-sm font-medium"
+            >
               Connect With Bishop Steve O. Asare
-            </button>
+            </a>
           </div>
         </div>
 

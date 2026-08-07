@@ -1,6 +1,24 @@
+import { useState } from "react";
+import { FaCopy, FaCheck } from "react-icons/fa6";
+
 const methods = ["Card", "Mobile Money", "Bank Transfer"];
+const MOMO_NUMBER = "055 686 2564";
+const MOMO_NAME = "Allos Mega Church International";
 
 export default function Giving() {
+  const [open, setOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(MOMO_NUMBER.replace(/\s/g, ""));
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // clipboard not available, ignore silently
+    }
+  };
+
   return (
     <section
       id="giving"
@@ -30,9 +48,39 @@ export default function Giving() {
           ))}
         </div>
 
-        <button className="bg-cream hover:bg-cream/70 transition-colors text-charcoal-dark rounded-full px-6 py-3 text-sm font-medium">
+        <button
+          onClick={() => setOpen((v) => !v)}
+          className="bg-cream hover:bg-cream/70 transition-colors text-charcoal-dark rounded-full px-6 py-3 text-sm font-medium"
+        >
           Give Online
         </button>
+
+        {open && (
+          <div className="mt-6 bg-green-500/20 border border-cream/20 rounded-2xl p-6 text-left max-w-md mx-auto">
+            <p className="text-gold-200 text-xs tracking-wide uppercase mb-3">
+              Mobile Money
+            </p>
+            <div className="flex items-center justify-between bg-cream/10 rounded-xl px-4 py-3 mb-3">
+              <div>
+                <p className="text-lg font-medium">{MOMO_NUMBER}</p>
+                <p className="text-cream/60 text-xs">{MOMO_NAME}</p>
+              </div>
+              <button
+                onClick={handleCopy}
+                aria-label="Copy MoMo number"
+                className="w-9 h-9 rounded-full bg-cream/10 hover:bg-cream/20 transition-colors flex items-center justify-center shrink-0"
+              >
+                {copied ? <FaCheck size={14} /> : <FaCopy size={14} />}
+              </button>
+            </div>
+            {copied && (
+              <p className="text-green-200 text-xs mb-3">Number copied!</p>
+            )}
+            <p className="text-cream/50 text-xs">
+              Card and bank transfer details coming soon.
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );
