@@ -1,3 +1,4 @@
+import bishopPhoto from "../assets/images/bishopPhoto.jpg";
 export default function Bishop() {
   return (
     <section className="px-6 md:px-12 py-16 max-w-5xl mx-auto bg-cream-dark/40">
@@ -32,9 +33,12 @@ export default function Bishop() {
         </div>
 
         <div className="order-1 md:order-2 relative rounded-2xl overflow-hidden h-96 bg-charcoal-dark flex items-center justify-center">
-          <span className="text-charcoal text-xs px-4 text-center">
-            [ bishop photo placeholder — 1000×1200 recommended ]
-          </span>
+          <img
+            src={bishopPhoto}
+            alt="Bishop Dag Heward-Mills"
+            className="w-full h-full object-cover object-top"
+            loading="lazy"
+          />
         </div>
       </div>
     </section>

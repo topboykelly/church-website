@@ -86,9 +86,9 @@ export default function Hero() {
           Welcome to Allos Mega Church International.
         </h1>
         <p className="text-cream/80 mb-6 max-w-md">
-          No matter where you are on your journey, you're welcome here. Whether
-          you're seeking answers, or looking for community, we invite you to
-          join us.
+          A place to belong, a family to grow with, and a community to call
+          home. Whether you are looking for answers or a fresh start, your
+          journey continues here.
         </p>
         <div className="flex flex-wrap gap-4">
           <a

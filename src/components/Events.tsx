@@ -1,20 +1,20 @@
 const events = [
   {
-    title: "New Members Class",
-    date: "August 17",
-    time: "5:00 – 7:00 PM",
-    tags: ["Childcare provided", "RSVP required"],
+    title: "Fresh Oil Service",
+    date: "Sunday",
+    time: "7:30 AM",
+    tags: ["RSVP required"],
   },
   {
-    title: "Community Outreach Day",
-    date: "August 24",
-    time: "9:00 AM – 1:00 PM",
+    title: "Glorious Generation Service",
+    date: "Saturday",
+    time: "5:00 PM",
     tags: ["All ages welcome"],
   },
   {
-    title: "Worship Night",
-    date: "September 5",
-    time: "6:30 PM",
+    title: "Holy Ghost Service",
+    date: "Sunday",
+    time: "9:30 AM",
     tags: ["Free entry"],
   },
 ];

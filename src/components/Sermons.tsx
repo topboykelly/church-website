@@ -1,4 +1,5 @@
-import { FaSpotify, FaApple, FaYoutube } from "react-icons/fa";
+import sermonPhoto from "../assets/images/sermonThumbnail.jpg";
+import { FaSpotify, FaPodcast, FaYoutube } from "react-icons/fa6";
 
 export default function Sermons() {
   return (
@@ -23,10 +24,13 @@ export default function Sermons() {
         rel="noopener noreferrer"
         className="relative rounded-2xl overflow-hidden aspect-video max-w-3xl mx-auto bg-charcoal-dark flex items-center justify-center mb-8 group cursor-pointer block"
       >
-        <span className="absolute top-4 left-4 text-charcoal text-xs">
-          [ embed latest sermon video here once you have the video ID ]
-        </span>
-        <div className="w-16 h-16 rounded-full bg-cream/90 group-hover:bg-cream transition-colors flex items-center justify-center">
+        <img
+          src={sermonPhoto}
+          alt="Latest sermon"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-charcoal-dark/30 group-hover:bg-charcoal-dark/40 transition-colors" />
+        <div className="relative w-16 h-16 rounded-full bg-cream/90 group-hover:bg-cream transition-colors flex items-center justify-center">
           <div className="w-0 h-0 border-y-[10px] border-y-transparent border-l-[16px] border-l-charcoal-dark ml-1" />
         </div>
       </a>
@@ -42,13 +46,15 @@ export default function Sermons() {
           Spotify
         </a>
         <a
-          href="#"
+          href="https://steveoasare.podbean.com/?utm_campaign=wl_i_share_pp&utm_source=wl_i_share_pbblog&utm_medium=dlink"
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center gap-2 text-sm text-charcoal-dark hover:text-coral-500 transition-colors"
         >
           <span className="w-8 h-8 rounded-full bg-plum-50 flex items-center justify-center text-plum-500">
-            <FaApple size={16} />
+            <FaPodcast size={16} />
           </span>
-          Apple Podcasts
+          Podbean
         </a>
         <a
           href="https://youtube.com/@allosmci?si=I_ScEH10MBncUlP2"

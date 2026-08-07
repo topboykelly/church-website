@@ -1,5 +1,11 @@
 import logo from "../assets/logo.png";
-import { FaFacebook, FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa6";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaYoutube,
+  FaTiktok,
+  FaPodcast,
+} from "react-icons/fa6";
 
 export default function Footer() {
   return (
@@ -57,6 +63,15 @@ export default function Footer() {
               className="w-8 h-8 rounded-full bg-cream/10 hover:bg-cream/20 transition-colors flex items-center justify-center"
             >
               <FaTiktok size={16} />
+            </a>
+            <a
+              href="https://steveoasare.podbean.com/?utm_campaign=wl_i_share_pp&utm_source=wl_i_share_pbblog&utm_medium=dlink"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Podbean"
+              className="w-8 h-8 rounded-full bg-cream/10 hover:bg-cream/20 transition-colors flex items-center justify-center"
+            >
+              <FaPodcast size={16} />
             </a>
           </div>
         </div>
