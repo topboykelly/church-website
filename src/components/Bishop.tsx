@@ -1,7 +1,10 @@
 import bishopPhoto from "../assets/images/bishopPhoto.jpg";
 export default function Bishop() {
   return (
-    <section className="px-6 md:px-12 py-16 max-w-5xl mx-auto bg-cream-dark/40">
+    <section
+      className="px-6 md:px-12 py-16 max-w-5xl mx-auto bg-cream-dark/40"
+      data-nav-theme="light"
+    >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div className="order-2 md:order-1 text-left">
           <p className="text-coral-500 text-xs tracking-wide uppercase mb-3">

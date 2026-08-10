@@ -5,6 +5,7 @@ export default function Sermons() {
   return (
     <section
       id="sermons"
+      data-nav-theme="light"
       className="px-6 md:px-12 py-16 max-w-5xl mx-auto text-center"
     >
       <p className="text-coral-500 text-xs tracking-wide uppercase mb-3">

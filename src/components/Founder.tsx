@@ -1,7 +1,10 @@
 import bishopPhoto from "../assets/images/bishopdag.jpg";
 export default function Founder() {
   return (
-    <section className="px-6 md:px-12 py-16 max-w-5xl mx-auto">
+    <section
+      className="px-6 md:px-12 py-16 max-w-5xl mx-auto"
+      data-nav-theme="light"
+    >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div className="relative rounded-2xl overflow-hidden h-96 bg-charcoal-dark flex items-center justify-center">
           <img

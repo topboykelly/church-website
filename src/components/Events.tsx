@@ -3,19 +3,19 @@ const events = [
     title: "Fresh Oil Service",
     date: "Sunday",
     time: "7:30 AM",
-    tags: ["RSVP required"],
+    tags: [""],
   },
   {
     title: "Glorious Generation Service",
     date: "Saturday",
     time: "5:00 PM",
-    tags: ["All ages welcome"],
+    tags: [""],
   },
   {
     title: "Holy Ghost Service",
     date: "Sunday",
     time: "9:30 AM",
-    tags: ["Free entry"],
+    tags: [""],
   },
 ];
 
@@ -23,6 +23,7 @@ export default function Events() {
   return (
     <section
       id="events"
+      data-nav-theme="light"
       className="px-6 md:px-12 py-16 max-w-5xl mx-auto text-center"
     >
       <p className="text-coral-500 text-xs tracking-wide uppercase mb-3">
@@ -39,7 +40,7 @@ export default function Events() {
         {events.map((e) => (
           <div
             key={e.title}
-            className="bg-gold-50 rounded-2xl p-5 flex flex-col"
+            className="bg-green-50 rounded-2xl p-5 flex flex-col"
           >
             <p className="text-gold-500 font-medium text-sm mb-1">
               {e.date} · {e.time}

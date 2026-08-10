@@ -2,6 +2,7 @@ export default function ServiceTimes() {
   return (
     <section
       id="services"
+      data-nav-theme="dark"
       className="bg-green-800 text-cream px-6 md:px-12 py-10"
     >
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-8">

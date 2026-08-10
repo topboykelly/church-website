@@ -29,6 +29,7 @@ export default function Vision() {
   return (
     <section
       id="about"
+      data-nav-theme="light"
       className="px-6 md:px-12 py-16 max-w-5xl mx-auto text-center"
     >
       <h2 className="text-2xl md:text-4xl font-bold mb-4 max-w-2xl mx-auto leading-tight">

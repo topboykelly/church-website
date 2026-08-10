@@ -38,7 +38,7 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--color-cream);
+  background-color: var(--color-black);
   color: var(--color-charcoal-dark);
   font-family: var(--font-sans);
 }

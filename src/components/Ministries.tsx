@@ -1,22 +1,20 @@
 const ministries = [
-  { name: "AMCI Saved", color: "coral" },
-  { name: "Glorious Generation", color: "gold" },
-  { name: "Young Adults", color: "plum" },
+  { name: "AMCI Saved", color: "green" },
+  { name: "Glorious Generation", color: "green" },
+  { name: "Young Adults", color: "green" },
   { name: "Men's & Women's Groups", color: "green" },
-  { name: "Outreach", color: "coral" },
+  { name: "Outreach", color: "green" },
 ];
 
 const colorMap: Record<string, string> = {
-  coral: "bg-coral-500 text-cream",
-  gold: "bg-gold-500 text-charcoal-dark",
-  plum: "bg-plum-500 text-cream",
-  green: "bg-green-500 text-cream",
+  green: "bg-green-800 text-cream",
 };
 
 export default function Ministries() {
   return (
     <section
       id="ministries"
+      data-nav-theme="light"
       className="px-6 md:px-12 py-16 max-w-5xl mx-auto text-center"
     >
       <p className="text-coral-500 text-xs tracking-wide uppercase mb-3">

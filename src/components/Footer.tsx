@@ -11,6 +11,7 @@ export default function Footer() {
   return (
     <footer
       id="footer"
+      data-nav-theme="dark"
       className="bg-charcoal-dark text-cream px-6 md:px-12 py-12"
     >
       <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
@@ -73,25 +74,6 @@ export default function Footer() {
             >
               <FaPodcast size={16} />
             </a>
-          </div>
-        </div>
-
-        <div>
-          <h3 className="text-gold-200 text-xs tracking-wide uppercase mb-4">
-            Stay in the loop
-          </h3>
-          <p className="text-cream/70 text-sm mb-3">
-            Sign up for weekly updates and event reminders.
-          </p>
-          <div className="flex gap-2">
-            <input
-              type="email"
-              placeholder="Your email"
-              className="flex-1 min-w-0 bg-cream/10 rounded-full px-4 py-2 text-sm placeholder:text-cream/40 outline-none border border-cream/20"
-            />
-            <button className="bg-cream hover:bg-cream/70 transition-colors text-charcoal-dark rounded-full px-6 py-3 text-sm font-medium">
-              Sign Up
-            </button>
           </div>
         </div>
 

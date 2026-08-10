@@ -22,6 +22,7 @@ export default function Giving() {
   return (
     <section
       id="giving"
+      data-nav-theme="dark"
       className="bg-green-800 text-cream px-6 md:px-12 py-16"
     >
       <div className="max-w-3xl mx-auto text-center">
