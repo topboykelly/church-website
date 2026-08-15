@@ -1,25 +1,30 @@
-const events = [
-  {
-    title: "Fresh Oil Service",
-    date: "Sunday",
-    time: "7:30 AM",
-    tags: [""],
-  },
-  {
-    title: "Glorious Generation Service",
-    date: "Saturday",
-    time: "5:00 PM",
-    tags: [""],
-  },
-  {
-    title: "Holy Ghost Service",
-    date: "Sunday",
-    time: "9:30 AM",
-    tags: [""],
-  },
-];
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { fetchEvents, type EventItem } from "../lib/eventsApi";
+
+function formatDateTime(iso: string) {
+  const d = new Date(iso);
+  const date = d.toLocaleDateString(undefined, {
+    month: "long",
+    day: "numeric",
+  });
+  const time = d.toLocaleTimeString(undefined, {
+    hour: "numeric",
+    minute: "2-digit",
+  });
+  return `${date} · ${time}`;
+}
 
 export default function Events() {
+  const [events, setEvents] = useState<EventItem[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchEvents()
+      .then((all) => setEvents(all.slice(0, 3))) // preview shows up to 3
+      .finally(() => setLoading(false));
+  }, []);
+
   return (
     <section
       id="events"
@@ -36,37 +41,38 @@ export default function Events() {
         A few ways to jump in and get connected this month.
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
-        {events.map((e) => (
-          <div
-            key={e.title}
-            className="bg-green-50 rounded-2xl p-5 flex flex-col"
-          >
-            <p className="text-gold-500 font-medium text-sm mb-1">
-              {e.date} · {e.time}
-            </p>
-            <h3 className="text-charcoal-dark font-medium text-lg mb-3">
-              {e.title}
-            </h3>
-            <div className="flex flex-wrap gap-2 mb-4">
-              {e.tags.map((t) => (
-                <span
-                  key={t}
-                  className="text-xs bg-cream text-charcoal-dark rounded-full px-3 py-1"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-            <a
-              href="#"
-              className="mt-auto text-sm font-medium text-charcoal-dark underline underline-offset-4 hover:text-coral-500 transition-colors"
+      {loading && (
+        <p className="text-charcoal/60 text-sm mb-8">Loading events&hellip;</p>
+      )}
+
+      {!loading && (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left mb-8">
+          {events.map((e) => (
+            <div
+              key={e.id}
+              className="bg-gold-50 rounded-2xl p-5 flex flex-col"
             >
-              RSVP →
-            </a>
-          </div>
-        ))}
-      </div>
+              <p className="text-gold-500 font-medium text-sm mb-1">
+                {formatDateTime(e.startDate)}
+              </p>
+              <h3 className="text-charcoal-dark font-medium text-lg mb-3">
+                {e.title}
+              </h3>
+              <p className="text-charcoal text-sm mb-4">{e.description}</p>
+              {e.location && (
+                <p className="text-charcoal/60 text-xs mt-auto">{e.location}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+
+      <Link
+        to="/events"
+        className="inline-block border border-charcoal-dark/20 hover:bg-charcoal-dark/5 transition-colors rounded-full px-6 py-3 text-sm font-medium"
+      >
+        View All Events
+      </Link>
     </section>
   );
 }

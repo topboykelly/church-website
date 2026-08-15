@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 export default function Nav() {
@@ -48,13 +49,13 @@ export default function Nav() {
         />
       </div>
       <div className="hidden md:flex items-center gap-8 text-sm">
-        <a href="#about" className="hover:text-coral-500 transition-colors">
+        <a href="/#about" className="hover:text-coral-500 transition-colors">
           About Us
         </a>
-        <a href="#services" className="hover:text-coral-500 transition-colors">
-          Services
-        </a>
-        <a href="#hero" className="hover:text-coral-500 transition-colors">
+        <Link to="/events" className="hover:text-coral-500 transition-colors">
+          Events
+        </Link>
+        <a href="/#hero" className="hover:text-coral-500 transition-colors">
           Plan a Visit
         </a>
         <div className="relative">
@@ -68,19 +69,19 @@ export default function Nav() {
           {moreOpen && (
             <div className="absolute top-full mt-2 left-0 bg-charcoal-dark text-cream border border-cream/20 rounded-lg overflow-hidden shadow-lg min-w-40 text-left">
               <a
-                href="#ministries"
+                href="/#services"
+                className="block px-4 py-2 hover:bg-cream/10 transition-colors"
+              >
+                Service Times
+              </a>
+              <a
+                href="/#ministries"
                 className="block px-4 py-2 hover:bg-cream/10 transition-colors"
               >
                 Ministries
               </a>
               <a
-                href="#events"
-                className="block px-4 py-2 hover:bg-cream/10 transition-colors"
-              >
-                Events
-              </a>
-              <a
-                href="#giving"
+                href="/#giving"
                 className="block px-4 py-2 hover:bg-cream/10 transition-colors"
               >
                 Give Online
