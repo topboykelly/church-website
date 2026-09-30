@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { siteConfig } from "../lib/siteConfig";
 
-const navLinks = [
+type NavLink = { label: string; href: string } | { label: string; to: string };
+
+const navLinks: NavLink[] = [
   { label: "About Us", href: "/#about" },
-  { label: "Events", to: "/events" as const },
+  { label: "Events", to: "/events" },
   { label: "Plan a Visit", href: "/#hero" },
 ];
 
@@ -79,7 +81,7 @@ export default function Nav() {
               <Link
                 key={link.label}
                 to={link.to}
-                className="hover:text-coral-500 transition-colors"
+                className="hover:text-slate-400 transition-colors"
               >
                 {link.label}
               </Link>
@@ -87,7 +89,7 @@ export default function Nav() {
               <a
                 key={link.label}
                 href={link.href}
-                className="hover:text-coral-500 transition-colors"
+                className="hover:text-slate-400 transition-colors"
               >
                 {link.label}
               </a>
@@ -97,7 +99,7 @@ export default function Nav() {
             <button
               onClick={() => setMoreOpen((v) => !v)}
               onBlur={() => setTimeout(() => setMoreOpen(false), 150)}
-              className="hover:text-coral-500 transition-colors"
+              className="hover:text-slate-400 transition-colors"
             >
               More
             </button>
