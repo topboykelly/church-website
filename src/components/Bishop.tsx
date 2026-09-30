@@ -4,7 +4,7 @@ import { siteConfig } from "../lib/siteConfig";
 export default function Bishop() {
   return (
     <section
-      className="px-6 md:px-12 py-16 max-w-5xl mx-auto bg-cream-dark/40"
+      className="px-6 md:px-12 py-16 max-w-5xl mx-auto bg-cream-dark/60 rounded-3xl"
       data-nav-theme="light"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -45,7 +45,7 @@ export default function Bishop() {
         <div className="order-1 md:order-2 relative rounded-2xl overflow-hidden h-96 bg-charcoal-dark flex items-center justify-center">
           <img
             src={bishopPhoto}
-            alt="Bishop Dag Heward-Mills"
+            alt="Bishop Steve O. Asare"
             className="w-full h-full object-cover object-top"
             loading="lazy"
           />
