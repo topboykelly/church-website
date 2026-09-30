@@ -1,11 +1,14 @@
 import imNewPhoto from "../assets/images/imNew.jpg";
 import connectPastorPhoto from "../assets/images/connectPastor.jpg";
 import joinGroupPhoto from "../assets/images/joinGroupPhoto.jpg";
+import { siteConfig } from "../lib/siteConfig";
+
 const pillars = [
   {
     title: "I'm New",
     desc: "Your journey starts here. Discover what to expect, meet friendly faces, and find your place in our community.",
     link: "Plan a Visit",
+    href: "/#hero",
     offset: false,
     image: imNewPhoto,
   },
@@ -13,6 +16,8 @@ const pillars = [
     title: "Connect With A Pastor",
     desc: "Need prayer, guidance, or simply want to know more about our vision? Reach out to our pastoral team today.",
     link: "Get Connected",
+    href: siteConfig.links.podbean,
+    external: true,
     offset: true,
     image: connectPastorPhoto,
   },
@@ -20,6 +25,7 @@ const pillars = [
     title: "Join a Group",
     desc: "Church is more than a Sunday service—it’s about connection. Find a small group where you can belong, share, and grow.",
     link: "View Groups",
+    href: "/#ministries",
     offset: false,
     image: joinGroupPhoto,
   },
@@ -61,7 +67,10 @@ export default function Vision() {
               <h3 className="text-cream font-bold text-lg mb-1">{p.title}</h3>
               <p className="text-cream/70 text-sm mb-3">{p.desc}</p>
               <a
-                href="#"
+                href={p.href}
+                {...("external" in p && p.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
                 className="text-cream text-sm font-medium underline underline-offset-4 hover:text-gold-200 transition-colors"
               >
                 {p.link}

@@ -1,4 +1,6 @@
 import heroPhoto from "../assets/images/hero1.jpg";
+import { siteConfig } from "../lib/siteConfig";
+
 export default function Hero() {
   return (
     <section
@@ -45,7 +47,7 @@ export default function Hero() {
           />
 
           <a
-            href="https://maps.app.goo.gl/NmbLzWzeJ1X9K1D7A"
+            href={siteConfig.links.maps}
             target="_blank"
             rel="noopener noreferrer"
             className="absolute bottom-0 left-0 right-0 bg-cream/90 text-green-800 text-[10px] font-medium text-center py-1 hover:bg-cream transition-colors"

@@ -1,7 +1,10 @@
 import sermonPhoto from "../assets/images/sermonThumbnail.jpg";
 import { FaSpotify, FaPodcast, FaYoutube } from "react-icons/fa6";
+import { siteConfig } from "../lib/siteConfig";
 
 export default function Sermons() {
+  const { youtube, podbean, spotify } = siteConfig.links;
+
   return (
     <section
       id="sermons"
@@ -20,7 +23,7 @@ export default function Sermons() {
       </p>
 
       <a
-        href="https://youtube.com/@allosmci?si=I_ScEH10MBncUlP2"
+        href={youtube}
         target="_blank"
         rel="noopener noreferrer"
         className="relative rounded-2xl overflow-hidden aspect-video max-w-3xl mx-auto bg-charcoal-dark flex items-center justify-center mb-8 group cursor-pointer block"
@@ -37,17 +40,21 @@ export default function Sermons() {
       </a>
 
       <div className="flex flex-wrap items-center justify-center gap-6 mb-8">
+        {spotify && (
+          <a
+            href={spotify}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-sm text-charcoal-dark hover:text-coral-500 transition-colors"
+          >
+            <span className="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center text-green-800">
+              <FaSpotify size={16} />
+            </span>
+            Spotify
+          </a>
+        )}
         <a
-          href="#"
-          className="flex items-center gap-2 text-sm text-charcoal-dark hover:text-coral-500 transition-colors"
-        >
-          <span className="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center text-green-800">
-            <FaSpotify size={16} />
-          </span>
-          Spotify
-        </a>
-        <a
-          href="https://steveoasare.podbean.com/?utm_campaign=wl_i_share_pp&utm_source=wl_i_share_pbblog&utm_medium=dlink"
+          href={podbean}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-sm text-charcoal-dark hover:text-coral-500 transition-colors"
@@ -58,7 +65,7 @@ export default function Sermons() {
           Podbean
         </a>
         <a
-          href="https://youtube.com/@allosmci?si=I_ScEH10MBncUlP2"
+          href={youtube}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-sm text-charcoal-dark hover:text-coral-500 transition-colors"
@@ -71,7 +78,7 @@ export default function Sermons() {
       </div>
 
       <a
-        href="https://youtube.com/@allosmci?si=I_ScEH10MBncUlP2"
+        href={youtube}
         target="_blank"
         rel="noopener noreferrer"
         className="inline-block border border-charcoal-dark/20 hover:bg-charcoal-dark/5 transition-colors rounded-full px-6 py-3 text-sm font-medium"

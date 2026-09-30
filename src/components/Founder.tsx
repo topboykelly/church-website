@@ -1,4 +1,6 @@
 import bishopPhoto from "../assets/images/bishopdag.jpg";
+import { siteConfig } from "../lib/siteConfig";
+
 export default function Founder() {
   return (
     <section
@@ -45,9 +47,14 @@ export default function Founder() {
           </p>
 
           <div className="flex items-center gap-4">
-            <button className="bg-green-500 hover:bg-green-800 transition-colors text-cream rounded-full px-6 py-3 text-sm font-medium">
+            <a
+              href={siteConfig.links.founderBio}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-green-500 hover:bg-green-800 transition-colors text-cream rounded-full px-6 py-3 text-sm font-medium"
+            >
               Read Full Bio
-            </button>
+            </a>
             <span className="font-medium text-charcoal-dark italic">
               — Bishop Dag Heward-Mills
             </span>

@@ -1,4 +1,6 @@
 import bishopPhoto from "../assets/images/bishopPhoto.jpg";
+import { siteConfig } from "../lib/siteConfig";
+
 export default function Bishop() {
   return (
     <section
@@ -30,7 +32,7 @@ export default function Bishop() {
 
           <div className="flex items-center gap-4">
             <a
-              href="https://steveoasare.podbean.com/?utm_campaign=wl_i_share_pp&utm_source=wl_i_share_pbblog&utm_medium=dlink"
+              href={siteConfig.links.podbean}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-green-500 hover:bg-green-800 transition-colors text-cream rounded-full px-6 py-3 text-sm font-medium"

@@ -6,9 +6,6 @@ export interface EventItem {
   location?: string;
 }
 
-// TEMPORARY mock data. Replace with real event content, or better,
-// wire this up to the real API once it's deployed and has a public,
-// no-auth endpoint (see fetchEvents below for the swap-in shape).
 const MOCK_EVENTS: EventItem[] = [
   {
     id: "1",
@@ -51,24 +48,45 @@ const MOCK_EVENTS: EventItem[] = [
   },
 ];
 
-/**
- * Fetches the list of public, upcoming events.
- *
- * TODO once the Events API is deployed with a public (no-auth) endpoint:
- *
- *   const API_BASE = import.meta.env.VITE_EVENTS_API_URL;
- *
- *   export async function fetchEvents(): Promise<EventItem[]> {
- *     const res = await fetch(`${API_BASE}/events/public`);
- *     if (!res.ok) throw new Error("Failed to load events");
- *     return res.json();
- *   }
- *
- * Everything that calls fetchEvents() (EventsPage, Events preview section)
- * already expects a Promise<EventItem[]>, so no other code needs to change.
- */
+function normalizeEvent(raw: Record<string, unknown>): EventItem | null {
+  const id = String(raw.id ?? raw._id ?? "");
+  const title = String(raw.title ?? raw.name ?? "");
+  const description = String(raw.description ?? raw.summary ?? "");
+  const startDate = String(
+    raw.startDate ?? raw.start_date ?? raw.startsAt ?? raw.date ?? "",
+  );
+  const location =
+    raw.location != null ? String(raw.location) : undefined;
+
+  if (!id || !title || !startDate) return null;
+
+  return { id, title, description, startDate, location };
+}
+
+function normalizeEvents(data: unknown): EventItem[] {
+  const list = Array.isArray(data)
+    ? data
+    : data &&
+        typeof data === "object" &&
+        Array.isArray((data as { events?: unknown[] }).events)
+      ? (data as { events: unknown[] }).events
+      : [];
+
+  return list
+    .filter((item): item is Record<string, unknown> => !!item && typeof item === "object")
+    .map(normalizeEvent)
+    .filter((event): event is EventItem => event !== null);
+}
+
 export async function fetchEvents(): Promise<EventItem[]> {
-  // simulated network delay so loading states can be seen/tested
-  await new Promise((resolve) => setTimeout(resolve, 400));
-  return MOCK_EVENTS;
+  const apiBase = import.meta.env.VITE_EVENTS_API_URL?.replace(/\/$/, "");
+
+  if (!apiBase) {
+    await new Promise((resolve) => setTimeout(resolve, 400));
+    return MOCK_EVENTS;
+  }
+
+  const res = await fetch(`${apiBase}/events/public`);
+  if (!res.ok) throw new Error("Failed to load events");
+  return normalizeEvents(await res.json());
 }

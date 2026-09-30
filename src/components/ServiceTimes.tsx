@@ -1,3 +1,5 @@
+import { siteConfig } from "../lib/siteConfig";
+
 export default function ServiceTimes() {
   return (
     <section
@@ -27,7 +29,7 @@ export default function ServiceTimes() {
           <p className="text-lg mb-1">Allos Mega Church International, Accra</p>
 
           <a
-            href="https://maps.app.goo.gl/NmbLzWzeJ1X9K1D7A"
+            href={siteConfig.links.maps}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 text-sm text-green-200 hover:text-gold-200 transition-colors"
@@ -36,9 +38,14 @@ export default function ServiceTimes() {
           </a>
         </div>
 
-        <button className="border border-cream/40 hover:bg-cream/10 transition-colors rounded-full px-6 py-3 text-sm font-medium whitespace-nowrap">
+        <a
+          href={siteConfig.links.liveStream}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="border border-cream/40 hover:bg-cream/10 transition-colors rounded-full px-6 py-3 text-sm font-medium whitespace-nowrap text-center"
+        >
           Watch Live Online
-        </button>
+        </a>
       </div>
     </section>
   );

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import {
   FaFacebook,
@@ -6,8 +7,11 @@ import {
   FaTiktok,
   FaPodcast,
 } from "react-icons/fa6";
+import { siteConfig } from "../lib/siteConfig";
 
 export default function Footer() {
+  const { contact, links, churchName } = siteConfig;
+
   return (
     <footer
       id="footer"
@@ -48,7 +52,7 @@ export default function Footer() {
               <FaInstagram size={16} />
             </a>
             <a
-              href="https://youtube.com/@allosmci?si=I_ScEH10MBncUlP2"
+              href={links.youtube}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"
@@ -66,7 +70,7 @@ export default function Footer() {
               <FaTiktok size={16} />
             </a>
             <a
-              href="https://steveoasare.podbean.com/?utm_campaign=wl_i_share_pp&utm_source=wl_i_share_pbblog&utm_medium=dlink"
+              href={links.podbean}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Podbean"
@@ -82,25 +86,41 @@ export default function Footer() {
             Contact &amp; Legal
           </h3>
           <ul className="space-y-2 text-sm text-cream/70">
-            <li>hello@ourchurch.org</li>
-            <li>+233 20 000 0000</li>
             <li>
-              <a href="#" className="hover:text-cream transition-colors">
-                Statement of Faith
+              <a
+                href={`mailto:${contact.email}`}
+                className="hover:text-cream transition-colors"
+              >
+                {contact.email}
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-cream transition-colors">
-                Privacy Policy
+              <a
+                href={contact.phoneHref}
+                className="hover:text-cream transition-colors"
+              >
+                {contact.phone}
               </a>
+            </li>
+            <li>
+              <Link
+                to="/statement-of-faith"
+                className="hover:text-cream transition-colors"
+              >
+                Statement of Faith
+              </Link>
+            </li>
+            <li>
+              <Link to="/privacy" className="hover:text-cream transition-colors">
+                Privacy Policy
+              </Link>
             </li>
           </ul>
         </div>
       </div>
 
       <div className="max-w-5xl mx-auto border-t border-cream/10 mt-10 pt-6 text-center text-cream/40 text-xs">
-        © {new Date().getFullYear()} Allos Mega Church International. All rights
-        reserved.
+        © {new Date().getFullYear()} {churchName}. All rights reserved.
       </div>
     </footer>
   );

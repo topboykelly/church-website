@@ -1,3 +1,5 @@
+import { siteConfig } from "../lib/siteConfig";
+
 const ministries = [
   { name: "AMCI Saved", color: "green" },
   { name: "Glorious Generation", color: "green" },
@@ -40,7 +42,9 @@ export default function Ministries() {
       </div>
 
       <a
-        href="#"
+        href={siteConfig.links.register}
+        target="_blank"
+        rel="noopener noreferrer"
         className="inline-block bg-charcoal-dark hover:bg-charcoal transition-colors text-cream rounded-full px-6 py-3 text-sm font-medium"
       >
         Find a Small Group
